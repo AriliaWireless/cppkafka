@@ -55,7 +55,8 @@ try_compile(RdKafka_FOUND ${CMAKE_CURRENT_BINARY_DIR}
 
 if (RdKafka_FOUND)
     add_library(RdKafka::rdkafka ${RDKAFKA_LIBRARY_TYPE} IMPORTED GLOBAL)
-    set(RDKAFKA_DEPENDENCIES pthread rt ssl crypto dl z)
+    set(RDKAFKA_DEPENDENCIES pthread)
+#    set(RDKAFKA_DEPENDENCIES pthread rt crypto dl z)
     set_target_properties(RdKafka::rdkafka PROPERTIES
             IMPORTED_NAME RdKafka
             IMPORTED_LOCATION "${RdKafka_LIBRARY_PATH}"
